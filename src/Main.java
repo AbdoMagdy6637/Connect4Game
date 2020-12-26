@@ -9,7 +9,6 @@ public class Main {
                     menu frame = new menu();
                     frame.setLocation(350,45);
 
-                    //frame.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

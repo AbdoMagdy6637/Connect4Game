@@ -1,33 +1,22 @@
 import java.awt.Color;
 import java.awt.Dimension;
-
-import java.awt.Color;
-import java.awt.Dimension;
-
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
-
-
 import javax.swing.*;
 
 public class Game_Pannel extends JPanel{
 
-    int maxLimit=0;
+
     Image img;
     final int Unit=100;  // Unit length
     char[][] DrowCircle;  // represent our grid red >>'r'  , yellow >> 'y' , empty >> ' '
-
     int i;  // usage For loops
     int j;  // usage For loops
-   // int ccccc=0;
-
     public static int checkWinner= 0;
     public static int cellsCounter=0;
     public Game_Pannel() {
         DrowCircle = new char[6][7];
-
-
         for( i=0;i<6;i++)
         {
             for( j=0;j<7;j++)
@@ -38,15 +27,9 @@ public class Game_Pannel extends JPanel{
             }
             System.out.println("");
         }
-       // public void display()
-       //df { System.out.println(ccccc);}
-
-
-
 
         img =new ImageIcon("C:\\Users\\Abdo Magdy\\Downloads\\b4g2.png").getImage();
         this.setPreferredSize(new Dimension(700,600));
-
 
     }
 
@@ -66,12 +49,12 @@ public class Game_Pannel extends JPanel{
         {
             JOptionPane.showMessageDialog(this,"the Column is already full");
             DrowCircle[y][x]= 'r';  //trying to solv bug of colors turn
-            System.err.println("cant add");
+            System.err.println("cant add circles");
         }
 
 
 
-            // these 2 for loop for checking what happend in display data 'r' 'y' ' '
+            // these 2 for loop for Update  data 'r' 'y' ' '
         System.out.println("-----------------------");
         for( i=0;i<6;i++)
         {
@@ -90,7 +73,7 @@ public class Game_Pannel extends JPanel{
 
     public void DrawYello(int x,int y)
     {
-        //cant add circles
+
         try
         {  DrowCircle[y][x]= 'y';
             checkWinner=win(DrowCircle);
@@ -102,7 +85,7 @@ public class Game_Pannel extends JPanel{
         {
             JOptionPane.showMessageDialog(this,"the Column is already full");
             DrowCircle[y][x]= 'y';      //trying to solv bug of colors turn
-            System.err.println("cant add");
+            System.err.println("Cant Add More");    //cant add circles
         }
 
 
@@ -230,44 +213,6 @@ public class Game_Pannel extends JPanel{
         else
             return 2;
     }
-
-//    public void vertically()
-//    {
-//        winner=4;
-//        for ( rr=0; rr<6 ;rr++) //rr represent rows
-//        {
-//
-//            for (cc = rr+1; cc < 6; cc++)  //cc  represent columns 6 represent rows
-//            {
-//                if (DrowCircle[rr][cc] != '5') {
-//
-//                if (DrowCircle[rr][cc] == 'r') {
-//                    System.out.println("Winner RED :" + winner);
-//                    System.out.println("**************************");
-//                    winner--;
-//                    if (winner == 0) {
-//                        System.out.println("red Win ");
-//                        JOptionPane.showMessageDialog(null, "Red Won , Congratulations!!");
-//                    }
-//                } else
-//                    winner = 4;
-//
-//                if (DrowCircle[rr][cc] == 'y') {
-//                    System.out.println("Winner Yellow :" + winner);
-//                    System.out.println("**************************");
-//                    winner--;
-//                    if (winner == 0) {
-//                        System.out.println("yellow Win ");
-//                        JOptionPane.showMessageDialog(null, "Yellow Won , Congratulations!!");
-//                    }
-//                } else
-//                    winner = 4;
-//                    }
-//            }
-//
-//        }
-//    }
-
 
 
     public void paint(Graphics g)

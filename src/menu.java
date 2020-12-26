@@ -1,5 +1,3 @@
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -9,13 +7,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import javax.swing.SwingConstants;
-import java.awt.SystemColor;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.ImageIcon;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.*;
 import javax.swing.*;
 
 public class menu extends JFrame implements ActionListener {
@@ -30,6 +24,8 @@ public class menu extends JFrame implements ActionListener {
     int f1=0,f2=550 ,ff1=5,ff2=5;  // change 550 when u fix the size of background to more than 550
     int g1=800,g2=550 ,gg1=5,gg2=5; // change 550 when u fix the size of background to more than 550
     int showingCounter=0;           // to show names on click developers
+    public static boolean makeSecondFrameVisible=false;
+    public static boolean AI=false;
     JLabel name1,name2,name3,name4,name5, name6;
 
     JButton playerVsPlayer;
@@ -157,30 +153,45 @@ public class menu extends JFrame implements ActionListener {
 
         //Events  addActionListener
         playerVsPlayer.addActionListener(this);
+        playerVsComputer.addActionListener(this);
         developers.addActionListener(this);
         Exit.addActionListener(this);
 
     }
 
+        public static boolean getAI()
+        {
+            return AI;
+        }
 
+    public static boolean getMakeSecondFrameVisible()
+    {
+        return makeSecondFrameVisible;
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource()==playerVsPlayer)
         {
+          //  GameFrame.setSecondFrame();
+            makeSecondFrameVisible=true;
             opening=false;
         this.setVisible(opening);
         this.setTitle("Welcome");
+//        GameFrame.player1Input=true;
+//        GameFrame.player2Input=true;
 
-        //input names
- //           try{
-           //     Player_Panel.Add_Player_Name(JOptionPane.showInputDialog("enter player 1 name"),0);
-           //     Player_Panel.Add_Player_Name(JOptionPane.showInputDialog("enter player 2 name"),1);
- //           }
-//            catch (NullPointerException evev)
-//            {
-//                System.out.println("i am sad");
-//            }
+        }
+
+        if (e.getSource()==playerVsComputer)
+        {
+            makeSecondFrameVisible=true;
+            opening=false;
+            AI=true;            // to make ai work
+            this.setVisible(opening);
+//
+//            GameFrame.player1Input=true;
+//            GameFrame.player2Input=true;
 
         }
 
@@ -211,7 +222,7 @@ public class menu extends JFrame implements ActionListener {
 
         }
 
-        //setting names in specific places on pannel
+        //setting names in specific places on background
         name1.setBounds(b1,b2,200,25);
         name2.setBounds(c1,c2,200,25);
         name3.setBounds(d1,d2,200,25);
@@ -262,12 +273,7 @@ public class menu extends JFrame implements ActionListener {
         g2-=gg2;
 
 
-
     }
 
-    public  void Add_Player_Name(String Player_Name,int counter)
-    {
-        Player_Panel.Player_Name[counter]=Player_Name;
-    }
 }
 
