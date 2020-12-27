@@ -49,7 +49,7 @@ public class GameFrame extends JFrame implements MouseListener {
 //       if (menu.getMakeSecondFrameVisible()==true)
 //            {
 //            }
-                this.setVisible(true);
+       //         this.setVisible(true);
 
 
 
@@ -92,7 +92,7 @@ public class GameFrame extends JFrame implements MouseListener {
             }
         }
 
-        if (menu.getAI()){
+        if (menu.getAI() ){
         /*abdo*/
         int[] arr = new int[20] ;
         for(int i = 0; i < arr.length; i++) {
@@ -105,7 +105,8 @@ public class GameFrame extends JFrame implements MouseListener {
             Player_Panel.Show_Current_Player(1);
             Player1_Turn = false;
             titleCounter++;
-            if (menu.getAI()){
+
+            if (menu.getAI() ){
             /*abdo*/
 
             boolean cond=false;
@@ -114,14 +115,14 @@ public class GameFrame extends JFrame implements MouseListener {
                 if( (Pannel.DrowCircle[5][i]=='r' && Pannel.DrowCircle[4][i]=='r' &&Pannel.DrowCircle[3][i]=='r' && Pannel.DrowCircle[2][i]=='5')
                         ||(Pannel.DrowCircle[4][i]=='r' && Pannel.DrowCircle[3][i]=='r' &&Pannel.DrowCircle[2][i]=='r' && Pannel.DrowCircle[1][i]=='5')
                         ||(Pannel.DrowCircle[3][i]=='r' && Pannel.DrowCircle[2][i]=='r' &&Pannel.DrowCircle[1][i]=='r' && Pannel.DrowCircle[0][i]=='5') ){
-                    try {click(500+(i*100), 200);} catch (AWTException ex) { }
+                    try {click(500+(i*100), 200);} catch (AWTException ex) {System.out.println("error2"); }
                     cond=true;
                     System.out.println("not randomC");
                     break;
                 }else if( (Pannel.DrowCircle[5][i]=='y' && Pannel.DrowCircle[4][i]=='y' &&Pannel.DrowCircle[3][i]=='y' && Pannel.DrowCircle[2][i]=='5')
                         ||(Pannel.DrowCircle[4][i]=='y' && Pannel.DrowCircle[3][i]=='y' &&Pannel.DrowCircle[2][i]=='y' && Pannel.DrowCircle[1][i]=='5')
                         ||(Pannel.DrowCircle[3][i]=='y' && Pannel.DrowCircle[2][i]=='y' &&Pannel.DrowCircle[1][i]=='y' && Pannel.DrowCircle[0][i]=='5') ){
-                    try {click(500+(i*100), 200);} catch (AWTException ex) { }
+                    try {click(500+(i*100), 200);} catch (AWTException ex) { System.out.println("error2");}
                     cond=true;
                     System.out.println("not randomC computer");
                     break;
@@ -222,8 +223,27 @@ public class GameFrame extends JFrame implements MouseListener {
         if (Game_Pannel.checkWinner==1)   // 1 for red   -1 for yellow and 2 for no one
         {
             if (Game_Pannel.checkWinner==1)
-            {
-                JOptionPane.showMessageDialog(null,"RED is A Winner ");
+            {   //ZZZ
+                int responce = JOptionPane.showConfirmDialog(null, "RED WIN!! \n WANT TO PLAY AGAIN", "CONFIRME", JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+                if(responce == JOptionPane.YES_OPTION)
+                {
+                    Player1_Turn = true;
+                    Pannel.make_zero();
+                    for(int i=0; i<7;i++)
+                    {
+                        counter[i]=6;
+                    }
+                    Pannel.repaint();
+                }
+
+                if(responce == JOptionPane.NO_OPTION)
+                {
+                    System.exit(0);
+                }
+                if(responce == JOptionPane.CLOSED_OPTION)
+                {
+                    System.exit(0);
+                }
                 this.setTitle("RED is A Winner");
                 //  System.exit(0);
             }
@@ -232,18 +252,57 @@ public class GameFrame extends JFrame implements MouseListener {
         if (Game_Pannel.checkWinner==-1)   // 1 for red   -1 for yellow and 2 for no one
         {
             if (Game_Pannel.checkWinner==-1)
-            {
-                JOptionPane.showMessageDialog(null,"YELLOW is A Winner ");
+            {   //ZZZ
+                int responce = JOptionPane.showConfirmDialog(null, "YELLOW WIN!! \n WANT TO PLAY AGAIN", "CONFIRME", JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+                if(responce == JOptionPane.YES_OPTION)
+                {
+                    Pannel.make_zero();
+                    for(int i=0; i<7;i++)
+                    {
+                        counter[i]=6;
+                    }
+                    Pannel.repaint();
+                }
+
+                if(responce == JOptionPane.NO_OPTION)
+                {
+                    System.exit(0);
+                }
+                if(responce == JOptionPane.CLOSED_OPTION)
+                {
+                    System.exit(0);
+                }
+
+
                 this.setTitle("YELLOW is A Winner");
-                //       System.exit(0);
+                //System.exit(0);
             }
         }
 
         if (Game_Pannel.cellsCounter==42)
         {
-            JOptionPane.showMessageDialog(null,"NO One Win ");
-            System.exit(0);
+            int responce = JOptionPane.showConfirmDialog(null, "NO One WON!! \n WANT TO PLAY AGAIN", "CONFIRME", JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+            if(responce == JOptionPane.YES_OPTION)
+            {
+                Pannel.make_zero();
+                for(int i=0; i<7;i++)
+                {
+                    counter[i]=6;
+                }
+                Pannel.repaint();
+            }
+
+            if(responce == JOptionPane.NO_OPTION)
+            {
+                System.exit(0);
+            }
+            if(responce == JOptionPane.CLOSED_OPTION)
+            {
+                System.exit(0);
+            }
+
         }
+
     }
 
 

@@ -8,6 +8,8 @@ import javax.swing.*;
 public class Game_Pannel extends JPanel{
 
 
+
+
     Image img;
     final int Unit=100;  // Unit length
     char[][] DrowCircle;  // represent our grid red >>'r'  , yellow >> 'y' , empty >> ' '
@@ -25,7 +27,7 @@ public class Game_Pannel extends JPanel{
                 //ccccc++;
             System.out.print(DrowCircle[i][j]);
             }
-            System.out.println("");
+            System.out.println(" ");
         }
 
         img =new ImageIcon("C:\\Users\\Abdo Magdy\\Downloads\\b4g2.png").getImage();
@@ -33,6 +35,19 @@ public class Game_Pannel extends JPanel{
 
     }
 
+
+    // to reset after play again confirm
+    public void make_zero(){
+        for( i=0;i<6;i++)
+        {
+            for( j=0;j<7;j++)
+            {
+
+                DrowCircle[i][j] = ' ';
+            }
+            System.out.println(" ");
+        }
+    }
     // DrawRed takes the input of where red circle should be and put it in DrawCircle
 
     public void DrawRed(int x,int y)
@@ -50,6 +65,7 @@ public class Game_Pannel extends JPanel{
             JOptionPane.showMessageDialog(this,"the Column is already full");
             DrowCircle[y][x]= 'r';  //trying to solv bug of colors turn
             System.err.println("cant add circles");
+
         }
 
 
@@ -63,7 +79,7 @@ public class Game_Pannel extends JPanel{
 
                 System.out.print(DrowCircle[i][j]);
             }
-            System.out.println("");
+            System.out.println(" ");
         }
 
 
@@ -98,7 +114,7 @@ public class Game_Pannel extends JPanel{
 
                 System.out.print(DrowCircle[i][j]);
             }
-            System.out.println("");
+            System.out.println(" ");
         }
 
     }

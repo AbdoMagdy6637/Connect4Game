@@ -28,6 +28,11 @@ public class menu extends JFrame implements ActionListener {
     public static boolean AI=false;
     JLabel name1,name2,name3,name4,name5, name6;
 
+
+    GameFrame pannel ;
+
+
+
     JButton playerVsPlayer;
     JPanel mainMenu_panel;
     JLabel Connect_4;
@@ -40,6 +45,11 @@ public class menu extends JFrame implements ActionListener {
 
     public menu() {
          Player_Panel=new Game_Player_Panel();          // for input problem
+
+        pannel = new GameFrame();
+
+
+
         tt.start();  //moving names
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //setLocation(50,200);  in main
@@ -173,6 +183,7 @@ public class menu extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource()==playerVsPlayer)
         {
+            pannel.setVisible(true);
           //  GameFrame.setSecondFrame();
             makeSecondFrameVisible=true;
             opening=false;
@@ -185,6 +196,7 @@ public class menu extends JFrame implements ActionListener {
 
         if (e.getSource()==playerVsComputer)
         {
+            pannel.setVisible(true);
             makeSecondFrameVisible=true;
             opening=false;
             AI=true;            // to make ai work

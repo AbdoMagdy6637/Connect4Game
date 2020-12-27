@@ -33,6 +33,7 @@ public class Game_Player_Panel extends JPanel{
     {
         try {
             Thread.sleep(1500);
+            Text_Field.setText(Player_Name[0]+"'s turn");
         } catch (InterruptedException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
