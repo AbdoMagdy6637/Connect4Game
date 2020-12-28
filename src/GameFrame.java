@@ -95,10 +95,8 @@ public class GameFrame extends JFrame implements MouseListener {
         if (menu.getAI() ){
     }
         char[][] d = Pannel.DrowCircle;//facilate the appression
-<<<<<<< HEAD
-        
-=======
->>>>>>> 93c47b593936f81b06f8464011b483032c7031ed
+
+
         if(Player1_Turn) {
             Pannel.DrawRed(Column_Num, counter[Column_Num]);
             Player_Panel.Show_Current_Player(1);
@@ -107,7 +105,7 @@ public class GameFrame extends JFrame implements MouseListener {
 
             if (menu.getAI() ){
             /*abdo*/
-<<<<<<< HEAD
+
                 boolean cond=false;//
                 for(int i=0;i<7;i++)
                 {
@@ -160,70 +158,6 @@ public class GameFrame extends JFrame implements MouseListener {
 
         }
 /*abdo*/
-=======
-        boolean cond=false;//
-        //column
-        for(int i=0 ; i<7;i++){
-                 if( ( d[5][i]=='r' && d[4][i]=='r' &&d[3][i]=='r' && d[2][i]=='5')||(d[4][i]=='r' && d[3][i]=='r' &&d[2][i]=='r' && d[1][i]=='5')||
-                      (d[3][i]=='r' && d[2][i]=='r' &&d[1][i]=='r' && d[0][i]=='5')||(d[5][i]=='y' && d[4][i]=='y' &&d[3][i]=='y' && d[2][i]=='5')||
-                      (d[4][i]=='y' && d[3][i]=='y' &&d[2][i]=='y' && d[1][i]=='5')||(d[3][i]=='y' && d[2][i]=='y' &&d[1][i]=='y' && d[0][i]=='5') ){
-                        try {click(500+(i*100), 200);} catch (AWTException ex) { }//click((Unit*i)+Unit , (int) w.getHeight()/2)
-                        cond=true;
-                        System.out.println("not randomC");
-                        break;
-              }
-          }
-        //row
-          for(int i=0 ; i<=5;i++){
-              if( (d[i][0]=='r' && d[i][1]=='r' &&d[i][2]=='r' && d[i][3]=='5')||(d[i][1]=='r' && d[i][2]=='r' &&d[i][3]=='r' && d[i][4]=='5')||
-                  (d[i][2]=='r' && d[i][3]=='r' &&d[i][4]=='r' && d[i][5]=='5')||(d[i][3]=='r' && d[i][4]=='r' &&d[i][5]=='r' && d[i][6]=='5')||
-                  (d[i][4]=='r' && d[i][5]=='r' &&d[i][6]=='r' && d[i][3]=='5')||(d[i][0]=='r' && d[i][1]=='y' &&d[i][2]=='y' && d[i][3]=='5')||
-                  (d[i][1]=='y' && d[i][2]=='y' &&d[i][3]=='y' && d[i][4]=='5')||(d[i][2]=='y' && d[i][3]=='y' &&d[i][4]=='y' && d[i][5]=='5')||
-                  (d[i][3]=='y' && d[i][4]=='y' &&d[i][5]=='y' && d[i][6]=='5')||(d[i][4]=='y' && d[i][5]=='y' &&d[i][6]=='y' && d[i][3]=='5')){
-                  for(int j=6 ; j>=0;j--){
-                      if( d[i][j]=='5'){
-                          try {click(500+(j*100), 200);} catch (AWTException ex) { System.out.println("error");}
-                          break;
-                      }
-                  }             
-                    cond=true;
-                    System.out.println("not randomR");
-              }           
-            }
-      for(int i=0;i<7;i++)
-      {
-          if(Pannel.DrowCircle[0][i]!='5')
-          col[i]=false;
-      }
-        int random_int = 0;
-        if(cond==false){
-
-            if(col[0]==false){
-                random_int = (int)(Math.random() * (1100 - 600 + 1) + 600);
-            }
-            if(col[1]==false){
-                random_int = (int)(Math.random() * (1100 - 700 + 1) + 700);
-            }
-            if(col[2]==false){
-                random_int = (int)(Math.random() * (1100 - 800 + 1) + 800);
-            }
-            if(col[3]==false){
-                random_int = (int)(Math.random() * (1100 - 900 + 1) + 900);
-            }
-            if(col[4]==false){
-                random_int = (int)(Math.random() * (800 - 500 + 1) + 500);
-            }
-            if(col[5]==false){
-                random_int = (int)(Math.random() * (900 - 500 + 1) + 500);
-            }
-            if(col[6]==false){
-                random_int = (int)(Math.random() * (900 - 500 + 1) + 500);
-            }
-          try {click(random_int, 200);} catch (AWTException ex) { }
-          System.out.println("random");
-      }
-            }
->>>>>>> 93c47b593936f81b06f8464011b483032c7031ed
 
         }
         else if(!Player1_Turn)
@@ -322,8 +256,8 @@ public class GameFrame extends JFrame implements MouseListener {
             }
 
         }
-
     }
+    
 
 
     @Override
