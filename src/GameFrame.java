@@ -67,7 +67,7 @@ public class GameFrame extends JFrame implements MouseListener {
         bot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
         bot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
     }
-        boolean[] col = {false,false,false,false,false,false,false} ;
+        boolean[] col = {true,true,true,true,true,true,true} ;//to check if the 7 columns complete or not 
         /*abdo*/
 
 
@@ -100,6 +100,8 @@ public class GameFrame extends JFrame implements MouseListener {
         }
         /*abdo*/
     }
+        char[][] d = Pannel.DrowCircle;//facilate the appression
+        
         if(Player1_Turn) {
             Pannel.DrawRed(Column_Num, counter[Column_Num]);
             Player_Panel.Show_Current_Player(1);
@@ -108,102 +110,58 @@ public class GameFrame extends JFrame implements MouseListener {
 
             if (menu.getAI() ){
             /*abdo*/
-
-            boolean cond=false;
-            //col
-            for(int i=0 ; i<7;i++){
-                if( (Pannel.DrowCircle[5][i]=='r' && Pannel.DrowCircle[4][i]=='r' &&Pannel.DrowCircle[3][i]=='r' && Pannel.DrowCircle[2][i]=='5')
-                        ||(Pannel.DrowCircle[4][i]=='r' && Pannel.DrowCircle[3][i]=='r' &&Pannel.DrowCircle[2][i]=='r' && Pannel.DrowCircle[1][i]=='5')
-                        ||(Pannel.DrowCircle[3][i]=='r' && Pannel.DrowCircle[2][i]=='r' &&Pannel.DrowCircle[1][i]=='r' && Pannel.DrowCircle[0][i]=='5') ){
-                    try {click(500+(i*100), 200);} catch (AWTException ex) {System.out.println("error2"); }
-                    cond=true;
-                    System.out.println("not randomC");
-                    break;
-                }else if( (Pannel.DrowCircle[5][i]=='y' && Pannel.DrowCircle[4][i]=='y' &&Pannel.DrowCircle[3][i]=='y' && Pannel.DrowCircle[2][i]=='5')
-                        ||(Pannel.DrowCircle[4][i]=='y' && Pannel.DrowCircle[3][i]=='y' &&Pannel.DrowCircle[2][i]=='y' && Pannel.DrowCircle[1][i]=='5')
-                        ||(Pannel.DrowCircle[3][i]=='y' && Pannel.DrowCircle[2][i]=='y' &&Pannel.DrowCircle[1][i]=='y' && Pannel.DrowCircle[0][i]=='5') ){
-                    try {click(500+(i*100), 200);} catch (AWTException ex) { System.out.println("error2");}
-                    cond=true;
-                    System.out.println("not randomC computer");
-                    break;
-                }
-            }
-            //row
-            for(int i=0 ; i<=5;i++){
-                if( (Pannel.DrowCircle[i][0]=='r' && Pannel.DrowCircle[i][1]=='r' &&Pannel.DrowCircle[i][2]=='r' && Pannel.DrowCircle[i][3]=='5')
-                        ||(Pannel.DrowCircle[i][1]=='r' && Pannel.DrowCircle[i][2]=='r' &&Pannel.DrowCircle[i][3]=='r' && Pannel.DrowCircle[i][4]=='5')
-                        ||(Pannel.DrowCircle[i][2]=='r' && Pannel.DrowCircle[i][3]=='r' &&Pannel.DrowCircle[i][4]=='r' && Pannel.DrowCircle[i][5]=='5')
-                        ||(Pannel.DrowCircle[i][3]=='r' && Pannel.DrowCircle[i][4]=='r' &&Pannel.DrowCircle[i][5]=='r' && Pannel.DrowCircle[i][6]=='5')
-                        ||(Pannel.DrowCircle[i][4]=='r' && Pannel.DrowCircle[i][5]=='r' &&Pannel.DrowCircle[i][6]=='r' && Pannel.DrowCircle[i][3]=='5')){
-                    for(int j=6 ; j>=0;j--){
-                        if( Pannel.DrowCircle[i][j]=='5'){
-                            try {click(500+(j*100), 200);} catch (AWTException ex) { System.out.println("error");}
-                            break;
-                        }
-                    }
-                    cond=true;
-                    System.out.println("not randomR");
-                }else if( (Pannel.DrowCircle[i][0]=='r' && Pannel.DrowCircle[i][1]=='y' &&Pannel.DrowCircle[i][2]=='y' && Pannel.DrowCircle[i][3]=='5')
-                        ||(Pannel.DrowCircle[i][1]=='y' && Pannel.DrowCircle[i][2]=='y' &&Pannel.DrowCircle[i][3]=='y' && Pannel.DrowCircle[i][4]=='5')
-                        ||(Pannel.DrowCircle[i][2]=='y' && Pannel.DrowCircle[i][3]=='y' &&Pannel.DrowCircle[i][4]=='y' && Pannel.DrowCircle[i][5]=='5')
-                        ||(Pannel.DrowCircle[i][3]=='y' && Pannel.DrowCircle[i][4]=='y' &&Pannel.DrowCircle[i][5]=='y' && Pannel.DrowCircle[i][6]=='5')
-                        ||(Pannel.DrowCircle[i][4]=='y' && Pannel.DrowCircle[i][5]=='y' &&Pannel.DrowCircle[i][6]=='y' && Pannel.DrowCircle[i][3]=='5')){
-                    for(int j=6 ; j>=0;j--){
-                        if( Pannel.DrowCircle[i][j]=='5'){
-                            try {click(500+(j*100), 200);} catch (AWTException ex) { System.out.println("error");}
-                            break;
-                        }
-                    }
-                    cond=true;
-                    System.out.println("not randomR computer");
-                }
-            }
-
-            for( int i=0;i<6;i++)
-            {
-                for( int j=0;j<7;j++)
+                boolean cond=false;//
+                for(int i=0;i<7;i++)
                 {
-
-                }
-
-            }
-            for(int i=0;i<7;i++)
-            {
-                if(Pannel.DrowCircle[0][i]!='5')
+                    if(Pannel.DrowCircle[0][i]!='5')
                     col[i]=false;
-            }
-            int random_int = 0;
-            if(cond==false){
+                }
+                //column
+                for(int i=0 ; i<7;i++){
+                         if( ( d[5][i]=='r' && d[4][i]=='r' &&d[3][i]=='r' && d[2][i]=='5')||(d[4][i]=='r' && d[3][i]=='r' &&d[2][i]=='r' && d[1][i]=='5')||
+                              (d[3][i]=='r' && d[2][i]=='r' &&d[1][i]=='r' && d[0][i]=='5')||(d[5][i]=='y' && d[4][i]=='y' &&d[3][i]=='y' && d[2][i]=='5')||
+                              (d[4][i]=='y' && d[3][i]=='y' &&d[2][i]=='y' && d[1][i]=='5')||(d[3][i]=='y' && d[2][i]=='y' &&d[1][i]=='y' && d[0][i]=='5') ){
+                                try {click(500+(i*100), 200);} catch (AWTException ex) { }//click((Unit*i)+Unit , (int) w.getHeight()/2)
+                                cond=true;
+                                System.out.println("not randomC");
+                                break;
+                      }
+                  }
+                //row
+                  for(int i=0 ; i<=5;i++){
+                      if( (d[i][0]=='r' && d[i][1]=='r' &&d[i][2]=='r' && d[i][3]=='5')||(d[i][1]=='r' && d[i][2]=='r' &&d[i][3]=='r' && d[i][4]=='5')||
+                          (d[i][2]=='r' && d[i][3]=='r' &&d[i][4]=='r' && d[i][5]=='5')||(d[i][3]=='r' && d[i][4]=='r' &&d[i][5]=='r' && d[i][6]=='5')||
+                          (d[i][4]=='r' && d[i][5]=='r' &&d[i][6]=='r' && d[i][3]=='5')||(d[i][0]=='r' && d[i][1]=='y' &&d[i][2]=='y' && d[i][3]=='5')||
+                          (d[i][1]=='y' && d[i][2]=='y' &&d[i][3]=='y' && d[i][4]=='5')||(d[i][2]=='y' && d[i][3]=='y' &&d[i][4]=='y' && d[i][5]=='5')||
+                          (d[i][3]=='y' && d[i][4]=='y' &&d[i][5]=='y' && d[i][6]=='5')||(d[i][4]=='y' && d[i][5]=='y' &&d[i][6]=='y' && d[i][3]=='5')){
+                          for(int j=6 ; j>=0;j--){
+                              if( d[i][j]=='5'){
+                                   try {
+                                    if(col[j]==true){click(500+(j*100), 200);}} catch (AWTException ex) { }//click((Unit*i)+Unit , (int) w.getHeight()/2)
+                                  break;
+                              }
+                          }             
+                            cond=true;
+                            System.out.println("not randomR");
+                      }           
+                    }
 
-                if(col[0]==false){
-                    random_int = (int)(Math.random() * (1100 - 600 + 1) + 600);
+
+                if(cond==false){
+                    for(int k=0 ; k<7;k++){
+                        int colNum=(int)(Math.random() * (6 - 0+ 1) + 0);//the colNum is random value generated from 0 to 6 to play in random columns
+                        if(col[colNum]==true){
+                            try {click(500+(colNum*100) , 200);} catch (AWTException ex) { }
+                             System.out.println("random");
+                            break;
+                        }
+                    }
                 }
-                if(col[1]==false){
-                    random_int = (int)(Math.random() * (1100 - 700 + 1) + 700);
-                }
-                if(col[2]==false){
-                    random_int = (int)(Math.random() * (1100 - 800 + 1) + 800);
-                }
-                if(col[3]==false){
-                    random_int = (int)(Math.random() * (1100 - 900 + 1) + 900);
-                }
-                if(col[4]==false){
-                    random_int = (int)(Math.random() * (800 - 500 + 1) + 500);
-                }
-                if(col[5]==false){
-                    random_int = (int)(Math.random() * (900 - 500 + 1) + 500);
-                }
-                if(col[6]==false){
-                    random_int = (int)(Math.random() * (900 - 500 + 1) + 500);
-                }
-                try {click(random_int, 200);} catch (AWTException ex) { }
-                System.out.println("random");
-            }
+          
 
 
-            /*abdo*/
         }
-
+/*abdo*/
 
         }
         else if(!Player1_Turn)
