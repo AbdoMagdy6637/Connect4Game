@@ -1,9 +1,7 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
-
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 
@@ -19,9 +17,6 @@ public class Game_Player_Panel extends JPanel{
         this.setBounds(0,0,800,100);
 
         Text_Field = new JLabel();
-//        Text_Field.setBackground(new Color(100,55,200));
-  //      Text_Field.setForeground(new Color(250,0,100));
-        // Text_Field.setForeground(new Color(250,200,200));
         Text_Field.setFont(new Font("Ink Free",Font.BOLD,75));
         Text_Field.setHorizontalAlignment(JLabel.CENTER);
         Text_Field.setText( "Connect 4 Game");
@@ -41,6 +36,7 @@ public class Game_Player_Panel extends JPanel{
         Text_Field.setBackground(new Color(255,255,255));
         Text_Field.setFont(new Font("Boulder",Font.BOLD,75));
         Text_Field.setForeground(new Color(0,0,0));
+        Text_Field.setText( "Connect 4 Game");
        // Text_Field.setText(Player_Name[0]+ " turn");
     }
     public  void Add_Player_Name(String Player_Name,int counter)

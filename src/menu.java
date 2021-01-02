@@ -28,6 +28,8 @@ public class menu extends JFrame implements ActionListener {
     public static boolean AI=false;
     JLabel name1,name2,name3,name4,name5, name6;
 
+    public static boolean soundMenu=true;
+
 
     GameFrame pannel ;
 
@@ -168,11 +170,18 @@ public class menu extends JFrame implements ActionListener {
         Exit.addActionListener(this);
 
     }
-
+        // getter getter getter getter getter getter  getter getter getter getter
         public static boolean getAI()
         {
             return AI;
         }
+    public static boolean getSound()
+    {
+        return soundMenu;
+    }  // of russian anthem
+    public   void setSoundMenu(boolean b)   // problem bug cant fix
+    {this.soundMenu=b;}
+
 
     public static boolean getMakeSecondFrameVisible()
     {
@@ -183,6 +192,8 @@ public class menu extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource()==playerVsPlayer)
         {
+          //  setSoundMenu(true);
+
             pannel.setVisible(true);
           //  GameFrame.setSecondFrame();
             makeSecondFrameVisible=true;
@@ -191,16 +202,23 @@ public class menu extends JFrame implements ActionListener {
         this.setTitle("Welcome");
 //        GameFrame.player1Input=true;
 //        GameFrame.player2Input=true;
+           // this.soundMenu=false;       //first sound russian anthem
+
+                                             //i cant  call fun of music here it will make it slow to Start game
 
         }
 
         if (e.getSource()==playerVsComputer)
         {
+          //  setSoundMenu(true);
+                           //i cant  call fun of music here it will make it slow
+
             pannel.setVisible(true);
             makeSecondFrameVisible=true;
             opening=false;
             AI=true;            // to make ai work
             this.setVisible(opening);
+//            this.soundMenu=false;  //first sound russian anthem
 //
 //            GameFrame.player1Input=true;
 //            GameFrame.player2Input=true;
@@ -217,6 +235,7 @@ public class menu extends JFrame implements ActionListener {
 
         if (e.getSource()==developers)
         {
+ //           setSoundMenu(true);
             showingCounter++;
             if(showingCounter %2!=0)
             {
@@ -232,7 +251,9 @@ public class menu extends JFrame implements ActionListener {
             name5.setVisible(showing_names);
            name6.setVisible(showing_names);
 
+
         }
+
 
         //setting names in specific places on background
         name1.setBounds(b1,b2,200,25);

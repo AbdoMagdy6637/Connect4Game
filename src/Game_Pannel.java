@@ -43,11 +43,12 @@ public class Game_Pannel extends JPanel{
             for( j=0;j<7;j++)
             {
 
-                DrowCircle[i][j] = ' ';
+                DrowCircle[i][j] = '5';
             }
             System.out.println(" ");
         }
     }
+
     // DrawRed takes the input of where red circle should be and put it in DrawCircle
 
     public void DrawRed(int x,int y)
